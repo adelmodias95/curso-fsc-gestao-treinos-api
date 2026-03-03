@@ -1,0 +1,27 @@
+{
+  "name": "curso-fsc-gestao-treinos-api",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adelmodias95/curso-fsc-gestao-treinos-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adelmodias95/curso-fsc-gestao-treinos-api/issues"
+  },
+  "homepage": "https://github.com/adelmodias95/curso-fsc-gestao-treinos-api#readme",
+  "devDependencies": {
+    "@types/node": "^24.11.0",
+    "eslint": "^9.39.2",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

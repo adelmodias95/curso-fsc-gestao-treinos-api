@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "es2024", // ESM
+    "skipLibCheck": true,
+    "strict": true,
+    "outDir": "./dist",
+  },
+  "include": ["src"]
+}
