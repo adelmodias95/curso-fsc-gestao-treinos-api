@@ -1,18 +1,31 @@
+import fastifySwagger from "@fastify/swagger";
+import fastifySwaggerUI from "@fastify/swagger-ui";
 import Fastify from "fastify";
-import { serializerCompiler, validatorCompiler, ZodTypeProvider } from "fastify-type-provider-zod";
+import { jsonSchemaTransform, serializerCompiler, validatorCompiler, ZodTypeProvider } from "fastify-type-provider-zod";
 import z from "zod";
 
 const fastify = Fastify({
   logger: true,
 });
 
-// Add schema validator and serializer
 fastify.setValidatorCompiler(validatorCompiler);
 fastify.setSerializerCompiler(serializerCompiler);
 
-// fastify.get("/", async () => {
-//   return { hello: "world" };
-// });
+await fastify.register(fastifySwagger, {
+  openapi: {
+    info: {
+      title: "Gestão de Treinos API",
+      description: "API para gestão de treinos",
+      version: "1.0.0",
+    },
+    servers: [{ description: "Localhost", url: "http://localhost:3000" }],
+  },
+  transform: jsonSchemaTransform,
+});
+
+await fastify.register(fastifySwaggerUI, {
+  routePrefix: "/docs",
+});
 
 fastify.withTypeProvider<ZodTypeProvider>().route({
   method: "GET",
