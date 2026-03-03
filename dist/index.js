@@ -1,2 +1,4 @@
-console.log("Hello World");
+const name = "";
+const age = 18;
+console.log("Hello World!");
 export {};

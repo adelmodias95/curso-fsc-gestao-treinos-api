@@ -19,9 +19,13 @@
   "homepage": "https://github.com/adelmodias95/curso-fsc-gestao-treinos-api#readme",
   "devDependencies": {
     "@types/node": "^24.11.0",
-    "eslint": "^9.39.2",
+    "eslint": "^9.39.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^17.4.0",
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
   }
 }
