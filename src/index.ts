@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import fastifyCors from "@fastify/cors";
 import fastifySwagger from "@fastify/swagger";
 // import fastifySwaggerUI from "@fastify/swagger-ui";
@@ -108,6 +110,7 @@ fastify.route({
         headers,
         ...(request.body ? { body: JSON.stringify(request.body) } : {}),
       });
+      console.log("request => ", request.body);
       // Process authentication request
       const response = await auth.handler(req);
       // Forward response to client
@@ -124,7 +127,7 @@ fastify.route({
   },
 });
 
-fastify.listen({ port: 3000 }, function (err) {
+fastify.listen({ port: Number(process.env.PORT) ?? 3000 }, function (err) {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
