@@ -5,7 +5,7 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { NotFoundError } from "../errors/index.js";
 import { auth } from "../lib/auth.js";
 import { ErrorSchema, WorkoutPlansSchema } from "../schemas/index.js";
-import { CreateWorkoutPlan } from "../usecases/CreateWorkoutPlan.js";
+import { CreateWorkoutPlan, CreateWorkoutPlanOutput } from "../usecases/CreateWorkoutPlan.js";
 
 export const workoutPlansRoutes = async (fastify: FastifyInstance) => {
   // Register workout plans endpoint
@@ -32,7 +32,7 @@ export const workoutPlansRoutes = async (fastify: FastifyInstance) => {
           });
         }
         const createWorkoutPlan = new CreateWorkoutPlan();
-        const result = await createWorkoutPlan.execute({
+        const result: CreateWorkoutPlanOutput = await createWorkoutPlan.execute({
           userId: session.user.id,
           name: request.body.name,
           workoutDays: request.body.workoutDays,
