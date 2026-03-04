@@ -1,0 +1,53 @@
+# Template de Prompt para Criar uma Rota de API
+
+Crie a rota `POST /workout-plans/{id(uuid)}/days/{id(uuid)}/sessions`
+
+## Descrição
+
+Ela inicia uma sessão de treino de um dia de um plano de treino específico.
+
+## Requisitos Técnicos
+
+- Um dia iniciado representa uma WorkoutSession criada no banco de dados.
+- Use case deve se chamar "StartWorkoutSession".
+- Caso o WorkoutPlan não esteja ativo (isActive=true), o use case deve lançar um erro "WorkoutPlanNotActiveError".
+- Crie a rota em @workout-plan.ts
+
+## Autenticação
+
+- Rota protegida.
+- O usuário precisa ser dono do plano de treino recebido.
+
+## Request
+
+[Descreva os dados de entrada, por exemplo:]
+
+```ts
+interface Body {}
+```
+
+```ts
+interface Params {}
+```
+
+```ts
+interface Query {}
+```
+
+## Response
+
+[Descreva o retorno esperado e o status code, por exemplo:]
+
+```ts
+interface 201 {
+  userWorkoutSessionId: string;
+}
+```
+
+## Regras de Negócio
+
+[Descreva as regras que o use case deve implementar, por exemplo:]
+
+- Apenas o dono do workout plan pode iniciar o dia.
+- Caso o dia recebido já tenha uma sessão iniciada (startedAt presente), retorne 409.
+- Deve ser possível iniciar uma sessão para um dia de descanso.
