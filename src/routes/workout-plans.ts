@@ -14,6 +14,8 @@ export const workoutPlansRoutes = async (fastify: FastifyInstance) => {
     method: "POST",
     url: "/",
     schema: {
+      tags: ["Workout Plan"],
+      summary: "Create workout plan",
       body: WorkoutPlansSchema.omit({ id: true }),
       response: {
         201: WorkoutPlansSchema,
@@ -62,6 +64,8 @@ export const workoutPlansRoutes = async (fastify: FastifyInstance) => {
     method: "POST",
     url: "/:workoutPlanId/days/:workoutDayId/sessions",
     schema: {
+      tags: ["Workout Plan"],
+      summary: "Start workout plan day session",
       params: StartWorkoutSessionParamsSchema,
       response: {
         201: StartWorkoutSessionResponseSchema,
