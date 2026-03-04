@@ -24,9 +24,11 @@ fastify.register(fastifyCors, {
   credentials: true,
 });
 
+// Configure JSON schema validation and serialization
 fastify.setValidatorCompiler(validatorCompiler);
 fastify.setSerializerCompiler(serializerCompiler);
 
+// Register Swagger documentation
 await fastify.register(fastifySwagger, {
   openapi: {
     info: {
@@ -39,6 +41,7 @@ await fastify.register(fastifySwagger, {
   transform: jsonSchemaTransform,
 });
 
+// Register API reference endpoint
 await fastify.register(fastifyApiReference, {
   routePrefix: "/docs",
   configuration: {
@@ -57,6 +60,7 @@ await fastify.register(fastifyApiReference, {
   },
 });
 
+// Register hello world endpoint
 fastify.withTypeProvider<ZodTypeProvider>().route({
   method: "GET",
   url: "/",
@@ -76,6 +80,7 @@ fastify.withTypeProvider<ZodTypeProvider>().route({
   },
 });
 
+// Register swagger.json endpoint
 fastify.withTypeProvider<ZodTypeProvider>().route({
   method: "GET",
   url: "/swagger.json",
@@ -124,6 +129,7 @@ fastify.route({
   },
 });
 
+// Register workout plans endpoint
 fastify.withTypeProvider<ZodTypeProvider>().route({
   method: "POST",
   url: "/workout-plans",
