@@ -17,7 +17,7 @@ interface inputDto {
       name: string;
       sets: number;
       reps: number;
-      restDurationInSeconds: number;
+      restTimeInSeconds: number;
     }>;
   }>;
 }
@@ -66,7 +66,7 @@ export class CreateWorkoutPlan {
                   order: exercise.order,
                   sets: exercise.sets,
                   reps: exercise.reps,
-                  restTimeInSeconds: Number(exercise.restDurationInSeconds),
+                  restTimeInSeconds: Number(exercise.restTimeInSeconds),
                 })),
               },
             })),
