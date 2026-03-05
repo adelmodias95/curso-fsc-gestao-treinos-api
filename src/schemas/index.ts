@@ -130,6 +130,26 @@ export const StatsResponseSchema = z.object({
   totalTimeInSeconds: z.number(),
 });
 
+export const UpsertUserTrainDataBodySchema = z.object({
+  userId: z.string(),
+  userName: z.string().optional(),
+  weightInGrams: z.number(),
+  heightInCentimeters: z.number(),
+  age: z.number().min(1).max(100),
+  bodyFatPercentage: z.number().min(0).max(100),
+});
+
+export const UserTrainDataResponseSchema = z.object({
+  userId: z.string(),
+  userName: z.string().optional(),
+  weightInGrams: z.number(),
+  heightInCentimeters: z.number(),
+  age: z.number(),
+  bodyFatPercentage: z.number(),
+});
+
+export const GetUserTrainDataResponseSchema = UserTrainDataResponseSchema.nullable();
+
 export const ListWorkoutPlansQuerySchema = z.object({
   active: z.coerce.boolean().optional(),
 });

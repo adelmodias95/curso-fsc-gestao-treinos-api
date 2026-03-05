@@ -31,10 +31,12 @@
     "typescript-eslint": "^8.56.1"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.33",
     "@fastify/cors": "^11.2.0",
     "@fastify/swagger": "^9.7.0",
     "@fastify/swagger-ui": "^5.2.5",
     "@scalar/fastify-api-reference": "^1.46.4",
+    "ai": "^6.0.100",
     "better-auth": "^1.4.18",
     "dayjs": "^1.11.19",
     "dotenv": "^17.3.1",
