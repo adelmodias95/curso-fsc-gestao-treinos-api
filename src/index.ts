@@ -9,6 +9,7 @@ import { jsonSchemaTransform, serializerCompiler, validatorCompiler, ZodTypeProv
 import z from "zod";
 
 import { auth } from "./lib/auth.js";
+import { aiRoutes } from "./routes/ai.js";
 import { homeRoutes } from "./routes/home.js";
 import { meRoutes } from "./routes/me.js";
 import { statsRoutes } from "./routes/stats.js";
@@ -134,6 +135,7 @@ await fastify.register(homeRoutes, { prefix: "/home" });
 await fastify.register(meRoutes, { prefix: "/me" });
 await fastify.register(statsRoutes, { prefix: "/stats" });
 await fastify.register(workoutPlansRoutes, { prefix: "/workout-plans" });
+await fastify.register(aiRoutes, { prefix: "/ai" });
 
 fastify.listen({ port: Number(process.env.PORT) ?? 3000 }, function (err) {
   if (err) {

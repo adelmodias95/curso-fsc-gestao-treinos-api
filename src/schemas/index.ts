@@ -2,6 +2,10 @@ import z from "zod";
 
 import { WeekDay } from "../generated/prisma/enums.js";
 
+export const AiBodySchema = z.object({
+  messages: z.array(z.record(z.string(), z.unknown())),
+});
+
 export const ErrorSchema = z.object({
   error: z.string(),
   message: z.string(),
