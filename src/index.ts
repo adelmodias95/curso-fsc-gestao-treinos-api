@@ -9,6 +9,7 @@ import { jsonSchemaTransform, serializerCompiler, validatorCompiler, ZodTypeProv
 import z from "zod";
 
 import { auth } from "./lib/auth.js";
+import { homeRoutes } from "./routes/home.js";
 import { workoutPlansRoutes } from "./routes/workout-plans.js";
 
 const fastify = Fastify({
@@ -127,6 +128,7 @@ fastify.route({
 });
 
 // Routes
+await fastify.register(homeRoutes, { prefix: "/home" });
 await fastify.register(workoutPlansRoutes, { prefix: "/workout-plans" });
 
 fastify.listen({ port: Number(process.env.PORT) ?? 3000 }, function (err) {
