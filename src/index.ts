@@ -10,6 +10,7 @@ import z from "zod";
 
 import { auth } from "./lib/auth.js";
 import { homeRoutes } from "./routes/home.js";
+import { statsRoutes } from "./routes/stats.js";
 import { workoutPlansRoutes } from "./routes/workout-plans.js";
 
 const fastify = Fastify({
@@ -129,6 +130,7 @@ fastify.route({
 
 // Routes
 await fastify.register(homeRoutes, { prefix: "/home" });
+await fastify.register(statsRoutes, { prefix: "/stats" });
 await fastify.register(workoutPlansRoutes, { prefix: "/workout-plans" });
 
 fastify.listen({ port: Number(process.env.PORT) ?? 3000 }, function (err) {
