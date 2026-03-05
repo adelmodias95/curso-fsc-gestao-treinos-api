@@ -127,7 +127,7 @@ export class GetStats {
       }
 
       if (restDayWeekDays.has(dayWeekDay)) {
-        streak++;
+        // streak++;
         currentDate = currentDate.subtract(1, "day");
         continue;
       }
